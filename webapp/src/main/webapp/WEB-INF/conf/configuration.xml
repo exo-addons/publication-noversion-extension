@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+	<component>
+		<key>org.exoplatform.services.wcm.publication.WCMPublicationService</key>
+		<type>org.exoplatform.services.wcm.extensions.publication.WCMPublicationServiceImpl</type>
+		<component-plugins>
+			<component-plugin>
+				<name>Authoring publication</name>
+				<set-method>addPublicationPlugin</set-method>
+				<type>org.exoplatform.addon.publication.lifecycle.AuthoringPublicationPlugin</type>
+				<description>This publication lifecycle publish a web content or DMS document to a portal page with more states and version.</description>	    	    	   
+			</component-plugin>
+		</component-plugins>
+		<init-params>
+			<value-param>
+				<name>publicationLocation</name>        
+				<value>${wcm.publication.path:collaboration:/sites}</value>				
+			</value-param>
+			<value-param>
+				<name>notAllowChildNodeEnrollInPubliction</name>        
+				<value>${wcm.publication.nodetypes:exo:webContent}</value>				
+			</value-param>						
+		</init-params>
+	</component>
+</configuration>
